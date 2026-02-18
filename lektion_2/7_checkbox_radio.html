@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>A simple form</title>
+</head>
+
+<body>
+
+    <form action="https://yrgo-web-services.netlify.app/forms" method="POST">
+        <label>
+            <input type="checkbox" name="chk1">
+            Text för alternativet.
+        </label><br>
+        <label>
+            <input type="checkbox" name="chk2" checked>
+            En förkryssad ruta
+        </label>
+
+        <br><br>
+
+        Bästa glassmaken:<br>
+        <label>
+            <input type="radio" name="flavor" value="chocolate">
+            Choklad
+        </label><br>
+        <label>
+            <input type="radio" name="flavor" value="vanilla" checked>
+            Vanilj
+        </label>
+
+        <br><br>
+
+        Bästa husdjuret:<br>
+        <label>
+            <input type="radio" name="animal" value="dog">
+            Hund
+        </label><br>
+        <label>
+            <input type="radio" name="animal" value="cat" checked>
+            Katt
+        </label><br>
+        <label>
+            <input type="radio" name="animal" value="fish" checked>
+            Fiskar
+        </label>
+
+        <br><br>
+
+        <input type="submit">
+
+    </form>
+
+</body>
+
+</html>

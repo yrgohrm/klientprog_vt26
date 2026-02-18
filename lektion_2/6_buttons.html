@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>A simple form</title>
+    <style>
+        /* byr er inte om det här, bara kosmetika */
+        input, button {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form action="https://yrgo-web-services.netlify.app/forms" method="POST">
+        <input type="text" placeholder="bara lite data" name="stuff">
+        <br>
+        <br>
+        <input type="submit" value="Skicka in formuläret"><br>
+        <input type="reset" value="Rensa formuläret"><br>
+        <input type="button" value="Jag gör inte mycket utan JS"><br>
+        <input type="image" src="button-image.png" alt="Submit med bild"><br>
+
+        <button type="submit">Skicka in formuläret</button><br>
+        <button type="reset">Rensa formuläret</button><br>
+        <button type="button">Jag gör inte mycket utan JS</button><br>
+        <button type="submit">
+            <img src="button-image.png" alt="Skicka in formuläret">
+        </button>
+    </form>
+
+</body>
+
+</html>

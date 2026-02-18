@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Min coola webbsida</h1>
+
+    <p>Välkommen till den tuffaste sidan på nätet!</p>
+
+    <form action="http://localhost:9090/api/unsafeecho" method="POST" enctype="text/plain">
+        <fieldset>
+            <legend>Gästbok</legend>
+            <label>Ditt namn: <input type="text" name="name"></label><br>
+            <label>
+                Ditt inlägg:<br>
+                <textarea name="comment" cols="30" rows="10"></textarea>
+            </label><br>
+            <input type="submit" value="Skicka in!">
+        </fieldset>
+    </form>
+
+</body>
+
+</html>
