@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Exempel</title>
+
+    <style>
+        .ingress {
+            font-weight: 700;
+            color: darkred;
+        }
+
+        .card {
+            width: 250px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            margin: 10px;
+            overflow: hidden;
+
+            /* använder mig av nästlade selektorer, bara för att jag kan */
+
+            img {
+                width: 100%;
+                height: 150px;
+                object-fit: contain;
+            }
+
+            >div {
+                padding: 15px;
+
+                h3 {
+                    margin: 0;
+                    font-size: 18px;
+                }
+
+                p {
+                    margin: 5px 0;
+                    font-size: 14px;
+                }
+            }
+        }
+
+        div:has(> .card) {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+
+    <article>
+        <p class="ingress">En fin ingress...</p>
+        <p>Lite vanlig text</p>
+    </article>
+    
+    <article>
+        <p class="ingress">En annan fin ingress...</p>
+        <p>Lite vanlig text till</p>
+    </article>
+
+    <div>
+        <div class="card">
+            <img src="https://robohash.org/swanson.png?size=100x150" alt="Jimmy 'Botty' Swanson">
+            <div class="card-content">
+                <h3>Jimmy 'Botty' Swanson</h3>
+                <p>
+                    Jimmy 'Botty' Swanson, born from assembly lines, rose as a
+                    champion in robot fighting. Beyond the arena, he used his
+                    winnings to support orphanages and advocate for robot rights.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://robohash.org/strongbolt.png?size=100x150" alt="Willy Strongbolt">
+            <div class="card-content">
+                <h3>Willy Strongbolt</h3>
+                <p>
+                    Willy Strongbolt was a daring inventor known for his eccentric creations and
+                    fearless spirit. With his wild imagination and unwavering determination, he
+                    pushed the boundaries of technology to new heights.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://robohash.org/mechaniella.png?size=100x150" alt="Liza Mechaniella">
+            <div class="card-content">
+                <h3>Liza Mechaniella</h3>
+                <p>
+                    Liza Mechaniella was a dazzling android performer,
+                    captivating audiences with her flawless vocals. Beneath her
+                    polished exterior, she harbored a passion for robotarian
+                    causes, advocating for the rights of artificial beings.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

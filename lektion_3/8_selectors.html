@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        * {
+            border: 1px solid rgb(241, 214, 214);
+        }
+
+        p * {
+            border-color: blue;
+        }
+
+        input[type="text"] {
+            border: 3px solid black;
+        }
+
+        li em {
+            color: green;
+        }
+
+        li > em {
+            /* child selector */
+            color: blue;
+        }
+
+        div~p {
+            /* general sibling selector */
+            color: blue;
+        }
+
+        h2+p {
+            /* adjacent sibling selector */
+            font-weight: bold;
+        }
+
+        a:visited {
+            /* pseudo class selector */
+            color: darkgoldenrod;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p>Detta är en <em>fin</em> text.</p>
+
+    <form>
+        Användarnamn: <input type="text"><br>
+        Lösenord: <input type="password">
+    </form>
+
+    <ul>
+        <li>En <em>fin</em> text</li>
+        <li>En ful text <span><em>med fin</em></span> text</li>
+        <li>En ful text</li>
+    </ul>
+
+    <div>
+        <div>En div</div>
+        <span>Något mellan div och p</span>
+        <p>Under en div</p>
+    </div>
+
+    <div>
+        <h2>En H2-rubrik</h2>
+        <p>En p som är direkt efter en h2</p>
+        <p>En p som ej är direkt efter en h2</p>
+    </div>
+
+    <a href="https://5456678901023eiohjjsfhs.com">En oklickad länk.</a>
+    <a href="https://google.com">En klickad länk.</a>
+
+</body>
+
+</html>

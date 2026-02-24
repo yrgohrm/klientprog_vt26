@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+        }
+
+        img {
+            border: 2px solid black;
+            border-radius: 5px;
+            margin: 10px;
+        }
+
+        img:last-child {
+            border-color: red;
+        }
+
+        img:hover {
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* bilderna hamnar på rad */
+        div:has(img) {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <img src="https://robohash.org/swanson.png?size=100x150" alt="Jimmy 'Botty' Swanson">
+        <img src="https://robohash.org/strongbolt.png?size=100x150" alt="Willy Strongbolt">
+        <img src="https://robohash.org/mechaniella.png?size=100x150" alt="Liza Mechaniella">
+        <img src="https://robohash.org/vonmutter.png?size=100x150" alt="Insex von Mutter">
+        <img src="https://robohash.org/washerington.png?size=100x150" alt="Holden Washerington">    
+    </div>
+
+    <!-- inte på rad här eftersom div:en inte innehåller någon img -->
+    <div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, assumenda?</p>
+        <p>Voluptatum, placeat? Dolorem quasi perferendis ducimus eaque minus vitae nisi omnis numquam voluptatem quam!</p>
+        <p>Quos, explicabo nesciunt? Harum esse molestiae nemo, consequatur reprehenderit aliquam laboriosam dignissimos.</p>
+    </div>
+
+
+</body>
+
+</html>

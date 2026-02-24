@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        .daytime {
+            background-color: lightgray;
+        }
+
+        th {
+            text-transform: uppercase;
+        }
+
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <table>
+        <colgroup>
+            <col>
+            <col span="2" class="red">
+        </colgroup>
+        <thead>
+            <tr>
+                <td></td>
+                <th>Namn</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody class="daytime">
+            <tr>
+                <th rowspan="2">Dagtid</th>
+                <td>Nisse</td>
+                <td>Hemvägen 2</td>
+            </tr>
+            <tr>
+                <td>Lasse</td>
+                <td>Gårdsgatan 12A</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <th rowspan="2">Nattid</th>
+                <td>Ella</td>
+                <td>Stället 3</td>
+            </tr>
+            <tr>
+                <td>Claes</td>
+                <td>Väggvägen 123</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+</html>
