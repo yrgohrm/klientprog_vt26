@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Custom Properties</title>
+    <style>
+        :root {
+            --rotate-angle: 90deg;
+        }
+
+        .message-box {
+            rotate: var(--rotate-angle);
+            background-color: lightgreen;
+            margin-bottom: 3rem;
+            padding: 0.5rem;
+            width: 35ch;
+        }
+
+        .ajar {
+            --rotate-angle: 2deg;
+        }
+
+        .flipped {
+            --rotate-angle: 180deg;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Custom properties</h1>
+
+    <div class="message-box ajar">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque,
+        itaque!
+    </div>
+    <div class="message-box flipped">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque,
+        itaque!
+    </div>
+
+    <div class="message-box">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque,
+        itaque!
+    </div>
+
+</body>
+
+</html>

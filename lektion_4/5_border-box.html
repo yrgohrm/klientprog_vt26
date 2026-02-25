@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>border-box</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            border: 5px solid black;
+            width: 300px;
+        }
+
+        .big {
+            border: 1rem solid hotpink;
+            margin-bottom: 1rem;
+            padding: 1rem;
+        }
+
+        .b-box {
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        .c-box {
+            box-sizing: content-box;
+            width: 100%;
+        }
+
+        .content {
+            background-color: coral;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="b-box big">
+            <div class="content">With box-sizing: border-box;</div>
+        </div>
+        <div class="c-box big">
+            <div class="content">With box-sizing: content-box;</div>
+        </div>
+    </div>
+
+</body>
+</html>

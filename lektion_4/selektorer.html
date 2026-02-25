@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p > em, input {
+            font-family: "Comic Sans MS";
+        }
+
+        div > input[type="text"] + p:hover {
+            border: 3px solid rgb(198, 191, 4);
+        }
+
+        p {
+            em {
+                font-size: x-small;
+            }
+        }
+
+        input:user-invalid {
+            color: white;
+            background-color: red;
+        }
+
+        li:nth-child(even) {
+            color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    
+    <div>foo</div>
+    <div>
+        <p>bar <em>baz</em></p>
+        <p>Lorem ipsum dolor sit. <span><em>Lorem ipsum dolor sit.</em></span></p>
+        <p>apab <em>bepa</em></p>
+        <input type="text" name="foo" id="foo">
+        <p>xyz</p>
+    </div>
+    
+    <input type="email" name="foo2" id="foo2">
+    <p>zzzz</p>
+    <em>cepa</em>
+
+    <ul>
+        <li>Lorem ipsum dolor sit.</li>
+        <li>Lorem ipsum dolor sit.</li>
+        <li>Lorem ipsum dolor sit.</li>
+        <li>Lorem ipsum dolor sit.</li>
+        <li>Lorem ipsum dolor sit.</li>
+        <li>Lorem ipsum dolor sit.</li>
+        <li>Lorem ipsum dolor sit.</li>
+        <li>Lorem ipsum dolor sit.</li>
+        <li>Lorem ipsum dolor sit.</li>
+        <li>Lorem ipsum dolor sit.</li>
+        <li>Lorem ipsum dolor sit.</li>
+    </ul>
+
+</body>
+</html>

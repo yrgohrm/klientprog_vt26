@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <style>
+        :where(body) {
+            --background-color: #FFF;
+            --text-color: #222;
+        }
+
+        :where(body):has(#dark-mode-switch:checked) {
+            --background-color: #242528;
+            --text-color: #c9cacf;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        /* Toggle slider styles */
+        .toggle-slider {
+            position: relative;
+            width: 40px;
+            height: 20px;
+            background-color: #ccc;
+            border-radius: 20px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: white;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Dark mode styles */
+        #dark-mode-switch:checked+.toggle-slider {
+            background-color: #555;
+        }
+
+        #dark-mode-switch:checked+.toggle-slider:before {
+            transform: translateX(20px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>A simple page</h1>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam in
+        dignissimos hic fugiat vel maiores iusto officia modi earum incidunt?</p>
+
+
+    <label for="dark-mode-switch">
+        <input type="checkbox" id="dark-mode-switch">
+        <span class="toggle-slider"></span>
+    </label>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <title>display-visibility</title>
+    <style>
+        body > div {
+            margin-bottom: 1rem;
+        }
+
+        .outer {
+            background-color: red;
+            border: 1px solid black;
+            display: inline-block;
+            padding: 0.5rem;
+        }
+
+        .inner {
+            background-color: white;
+            border: 1px solid black;
+            display: inline-block;
+            width: 3rem;
+            height: 3rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        original:<br>
+
+        <div class="outer">
+            <div class="inner">
+                A
+            </div>
+            <div class="inner">
+                B
+            </div>
+            <div class="inner">
+                C
+            </div>
+        </div>
+    </div>
+
+    <div>
+        display: none:<br>
+
+        <div class="outer">
+            <div class="inner" style="display: none;">
+                A
+            </div>
+            <div class="inner">
+                B
+            </div>
+            <div class="inner">
+                C
+            </div>
+        </div>
+    </div>
+
+    <div>
+        visiblity: hidden:<br>
+
+        <div class="outer">
+            <div class="inner" style="visibility: hidden;">
+                A
+            </div>
+            <div class="inner">
+                B
+            </div>
+            <div class="inner">
+                C
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
