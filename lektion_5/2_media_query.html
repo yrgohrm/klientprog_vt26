@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Kod för minsta skärm hamnar här */
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container div {
+            border: 2px solid blue;
+            margin-bottom: 10px;
+            padding: 0.25rem;
+        }
+
+        /* sedan gör vi media queries i stigande storlek */
+        @media screen and (min-width: 576px) {
+            .container {
+                padding: 20px;
+            }
+
+            .container div {
+                border-color: red;
+            }
+        }
+
+        @media screen and (min-width: 768px) {
+            .container {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+                margin: auto;
+                max-width: 1000px;
+            }
+
+            .container div {
+                border-color: green;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
+            quibusdam, repellendus a nesciunt quisquam adipisci quo cum ab! Aut,
+            exercitationem.
+        </div>
+        
+        <div>
+            Vitae ea harum recusandae officiis eligendi cum, maiores
+            necessitatibus non corrupti enim soluta voluptatem quia eveniet sed
+            voluptates minus accusamus asperiores fugiat.
+        </div>
+
+        <div>
+            Reiciendis nobis, ipsam recusandae cupiditate sequi sed dolor
+            deleniti delectus nisi, inventore perspiciatis fugit odio quis
+            cumque veritatis rem fugiat consequatur magni.
+        </div>
+    </div>
+</body>
+
+</html>

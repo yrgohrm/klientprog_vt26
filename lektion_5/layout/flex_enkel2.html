@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- flex i en box med exakt rätt storlek har inte mycket effekt -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            margin: 16px;
+            border: 1px solid black;
+        }
+
+        nav {
+            margin: 16px;
+            border: 1px solid red;
+        }
+
+        div div {
+            width: 50px;
+            height: 30px;
+            display: inline-block;
+        }
+
+        .flex {
+            display: flex;
+            justify-content: space-between;
+            width: 260px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <p>I det här exemplet vill jag visa på att det inte alltid är uppenbart eller väsentligt med flex om man har satt
+        fixa storlekar på sina element.</p>
+
+    <p>Följande div har en storlek som gör att barnen precis får plats och i det här läget är skillnaden mellan flexbox
+        och inte är väldigt liten. Pröva att plocka bort "display: flex" i Devtools och se hur mycket (eller snarare lite) som blir annorlunda.
+        Det är i detta läge inte fel att använda flex, men det indikerar att man inte riktigt förstår dess syfte.
+    </p>
+
+    <div class="flex">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+
+</html>

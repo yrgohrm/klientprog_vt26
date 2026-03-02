@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- flex gäller för barn, inte barnbarn -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            margin: 1em;
+            border: 1px solid black;
+        }
+
+        nav {
+            margin: 1em;
+            border: 1px solid red;
+        }
+
+        div div {
+            width: 5em;
+            height: 2em;
+        }
+
+        .flex {
+            display: flex;
+            justify-content: space-evenly;
+        }
+    </style>
+</head>
+
+<body>
+    <p>Detta exempel illustrerar att en flex-container bara gör layout på sina barn. Inte på barnbarn eller andra
+        subelement. Man måste alltså sätta flex på rätt element.</p>
+
+    <p>Här har vår flex-container tre barn och de läggs ut på ett korrekt sätt enligt display:flex och
+        justify-content:space-evenly</p>
+
+    <div class="flex">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <p>Här har vår flex-container bara ett barn, och det placeras korrekt, men hade man tänk att de tre div-elementen
+        skulle placeras med flex-layout är man fel ute. Då hade man behövt ha display:flex på nav-elementet.</p>
+
+    <div class="flex">
+        <nav>
+            <div></div>
+            <div></div>
+            <div></div>
+        </nav>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- sätter man en underlig storlek funkar det, men är kanske inte så bra -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content {
+            display: grid;
+            grid-template-columns: 10% 30% 60%;
+            grid-template-rows: 10% 90%;
+            width: 300px;
+            height: 200px;
+            float: left;
+        }
+
+        #ingrid {
+            grid-column: 3;
+            grid-row: 2;
+
+            background-color: mediumvioletred;
+
+            width: 30px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <p>Att sätta storlek på element i en grid är lite osnyggt. Speciellt om storleken är större än rutan den är i kommer detta innebära problem med overflow. Titta på rutnätet i devtools.</p>
+    <div class="content">
+        <div id="ingrid"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            gap: 0.25rem;
+            justify-content: space-around;
+
+            div {
+                padding: 0.5rem;
+                border: 1px solid red;
+            }
+        }
+
+        .col {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div>foo</div>
+        <div>bar</div>
+        <div class="col">
+            <div>x</div>
+            <div>y</div>
+            <div>z</div>
+        </div>
+    </div>
+
+</body>
+</html>

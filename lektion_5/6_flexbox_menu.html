@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+        }
+    
+        nav li {
+            margin: 0 10px;
+        }
+    
+        nav li:last-child {
+            margin-left: auto;
+        }
+    
+        nav a {
+            background-color: turquoise;
+            border: 2px solid teal;
+            border-radius: 5px;
+            color: #000;
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+        }
+    
+        nav a:hover {
+            background-color:
+                lightseagreen;
+        }
+
+        @media screen and (max-width: 600px) {
+            nav ul {
+                flex-direction: column;
+                gap: 2px;
+            }
+
+            nav li {
+                margin-left: 0;
+            }
+
+            nav li:nth-child(4) {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#">Hem</a></li>
+            <li><a href="#">Vänner</a></li>
+            <li><a href="#">Erbjudanden</a></li>
+            <li><a href="#">Logga ut</a></li>
+        </ul>
+    </nav>    
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- man kan använda procent om man vill det. se hur float påverkar boxen -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content {
+            display: grid;
+            grid-template-columns: 10% 30% 60%;
+            grid-template-rows: 10% 90%;
+            width: 300px;
+            height: 200px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <p>Ett exempel på att man kan använda % istället för fr som enhet om man vill det. Titta på den med devtools.</p>
+
+    <div class="content">
+
+    </div>
+</body>
+</html>

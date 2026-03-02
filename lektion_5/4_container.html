@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* ingen container kommer att vara större än 950px bred */
+        .container1,
+        .container2 {
+            container-type: inline-size;
+
+            border: 1px solid black;
+            max-width: 950px;
+            padding: 1rem;
+        }
+
+        /* container 2 kommer dock dessutom att vara 70% av fönsterstorleken */
+        .container2 {
+            margin-top: 2rem;
+            width: 70%;
+        }
+
+        /* nedan kod är desktop-first, störst till minst skärm */
+
+        /* normalläget är sex kolumner */
+
+        .robots {
+            display: grid;
+            gap: 0.5rem;
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: repeat(1, 1fr);
+            place-items: center;
+        }
+
+        .robots>div {
+            border: 1px solid grey;
+            border-radius: 0.5rem;
+        }
+
+        /* när containern (inte sidan!) är max 700px
+           vill vi ha tre kolumner */
+
+        @container (max-width: 700px) {
+            .robots {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+            }
+        }
+
+        /* när containern (inte sidan!) är max 375px
+           vill vi ha två kolumner */
+
+        @container (max-width: 375px) {
+            .robots {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+            }
+        }
+
+        /* slutligen alla i en enda kolumn */
+
+        @container (max-width: 255px) {
+            .robots {
+                grid-template-columns: repeat(1, 1fr);
+                grid-template-rows: repeat(6, 1fr);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container1">
+        <div class="robots">
+            <div><img src="https://robohash.org/nisse.png?size=100x100" alt=""></div>
+            <div><img src="https://robohash.org/bosse.png?size=100x100" alt=""></div>
+            <div><img src="https://robohash.org/lena.png?size=100x100" alt=""></div>
+            <div><img src="https://robohash.org/leyla.png?size=100x100" alt=""></div>
+            <div><img src="https://robohash.org/john.png?size=100x100" alt=""></div>
+            <div><img src="https://robohash.org/jane.png?size=100x100" alt=""></div>
+        </div>
+    </div>
+
+    <div class="container2">
+        <div class="robots">
+            <div><img src="https://robohash.org/nisse.png?size=100x100&set=set3" alt=""></div>
+            <div><img src="https://robohash.org/bosse.png?size=100x100&set=set3" alt=""></div>
+            <div><img src="https://robohash.org/lena.png?size=100x100&set=set3" alt=""></div>
+            <div><img src="https://robohash.org/leyla.png?size=100x100&set=set3" alt=""></div>
+            <div><img src="https://robohash.org/john.png?size=100x100&set=set3" alt=""></div>
+            <div><img src="https://robohash.org/jane.png?size=100x100&set=set3" alt=""></div>
+        </div>
+    </div>
+
+</body>
+
+</html>

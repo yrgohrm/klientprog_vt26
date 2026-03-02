@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body>div {
+            margin: 20px 0;
+        }
+
+        .thegrid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            gap: 10px;
+            height: 200px;
+            width: 200px;
+        }
+
+        /* här namnger vi "mellanrummet"/"linjerna" mellan rutorna. */
+        .othergrid {
+            display: grid;
+            grid-template-columns: 1fr [content-start] 1fr 1fr [content-end] 1fr;
+            grid-template-rows: 1fr [content-start] 1fr 1fr [content-end];
+            gap: 10px;
+            height: 200px;
+            width: 200px;
+        }
+
+        .extragrid {
+            display: grid;
+            grid-template-areas: "menu content content"
+                                "menu foo foo"
+                                "adv adv adv";
+            gap: 5px;
+
+            div {
+                border: 1px solid red;
+            }
+        }
+
+        .adv {
+            grid-area: adv;
+        }
+
+        .menu {
+            grid-area: menu;
+        }
+
+        .content {
+            grid-area: content;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="extragrid">
+        <div class="menu">meny</div>
+        <div class="content">innehåll</div>
+        <div class="adv">reklam</div>
+        <div>foo</div>
+    </div>
+
+    <div class="thegrid">
+        <div style="background-color: #eee; grid-row: 1/3;"></div>
+        <div style="background-color: #ccc;"></div>
+        <div style="background-color: #bbb;"></div>
+        <div style="background-color: #999; grid-row: 2/4; grid-column: 2/4;">Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Id, reprehenderit! Nobis nesciunt quaerat aperiam omnis.</div>
+        <div style="background-color: #f00; grid-row: 3; grid-column: 2;"></div>
+        <div style="background-color: #0f0; grid-row: 1; grid-column: 2;"></div>
+    </div>
+
+    <hr>
+
+    <div class="othergrid">
+        <div style="background-color: #eee; grid-column: content-start/content-end; grid-row: content-start/content-end;"></div>
+        <div style="background-color: #ddd;"></div>
+        <div style="background-color: #ccc;"></div>
+        <div style="background-color: #bbb;"></div>
+        <div style="background-color: #aaa;"></div>
+        <div style="background-color: #999;"></div>
+        <div style="background-color: #888;"></div>
+        <div style="background-color: #777;"></div>
+        <div style="background-color: #666;"></div>
+    </div>
+</body>
+
+</html>
