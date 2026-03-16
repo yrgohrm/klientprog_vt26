@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Heading</h1>
+    <p id="someid">
+        this will be <strong>gone</strong>
+    </p>
+
+    <input type="button" id="transform" value="Transform">
+
+    <script>
+
+        document.getElementById("transform").addEventListener("click", () => {
+            let someElem = document.getElementById('someid'),
+                strong = document.createElement('strong'),
+                atext = document.createTextNode('some text')
+
+            strong.appendChild(atext)
+            someElem.appendChild(strong)
+
+            let oldStrong = someElem.getElementsByTagName('strong')[0]
+            someElem.removeChild(oldStrong)
+
+            let oldHeading = document.getElementsByTagName('h1')[0],
+                newHeading = document.createElement('h1')
+
+            newHeading.appendChild(document.createTextNode('new text'))
+            oldHeading.parentNode.replaceChild(newHeading, oldHeading)
+
+            let button = document.getElementById("transform")
+            button.remove()
+
+            const newDiv = document.createElement('div')
+            newDiv.innerText = "Hello <em>hello</em>";
+
+            someElem.append(newDiv);
+
+        })
+
+    </script>
+</body>
+
+</html>

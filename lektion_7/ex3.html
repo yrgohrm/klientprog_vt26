@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="output.js"></script>
+</head>
+
+<body>
+    <script>
+        let numbers = [1, 2, 3, 4, 5, 6, 7, 8]
+        
+        numbers.forEach(x => output(x))
+
+        output('---')
+
+        let res = numbers.map(x => x / 2)
+        output(res)
+        
+        output('---')
+
+        res = numbers.filter(x => x > 3)
+        output(res)
+        
+        output('---')
+
+        res = numbers.reduce((value, acc) => value * acc)
+        output(res)
+        
+        output('---')
+
+        numbers.map(x => x / 2)
+               .filter(x => x > 3)
+               .forEach(x => output(x))
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex5</title>
+</head>
+<body>
+    <script>
+        class Person {
+            #firstName;
+            #lastName;
+            
+            constructor(fname, lname) {
+                this.#firstName = fname;
+                this.#lastName = lname;
+            }
+
+            greet() {
+                console.log(`Hello ${this.#firstName} ${this.#lastName}!`);
+            }
+
+            get firstName() {
+                return this.#firstName;
+            }
+
+            get lastName() {
+                return this.#lastName;
+            }
+        }
+
+        const lena = new Person("Lena", "Lamm");
+        lena.greet();
+
+        class Employee extends Person {
+            #company;
+
+            constructor(fname, lname, company) {
+                super(fname, lname);
+                this.#company = company;
+            }
+
+            greet() {
+                console.log(`Hello ${this.firstName} ${this.lastName}! How's work at ${this.#company}?`);
+            }
+        }
+
+        const bosse = new Employee("Bosse", "Bredsladd", "Lamm Industries");
+        bosse.greet();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        let template = document.createElement('p')
+
+        template.style.backgroundColor = 'black'
+        template.style.color = 'lightgrey'
+        template.style.border = '4px dotted blue'
+
+        for (let i = 0; i < 5; ++i) {
+            let elem = template.cloneNode()
+            elem.innerText = `Paragraph ${i}`
+            document.body.appendChild(elem)
+        }
+    </script>
+
+</body>
+
+</html>

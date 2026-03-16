@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="output.js"></script>
+</head>
+
+<body>
+    <script>
+        let numbers = [1, 2, 3, 4]
+        numbers.forEach(n => output(n))
+        output('---')
+
+        numbers[10] = 22
+        numbers.forEach(n => output(n))
+        output('---')
+
+        for (const index in numbers) { output(index) }
+
+        output('---')
+
+        output(numbers.length)
+        output(numbers[7])
+    </script>
+</body>
+
+</html>

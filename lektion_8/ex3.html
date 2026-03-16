@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex3</title>
+</head>
+<body>
+    <script>
+        /**
+         * Find the long words in a text.
+         * 
+         * @param {string} text the text to split into words 
+         * @returns {string[]} all the long words
+         */
+        function longWords(text) {
+            // const words = text.split(' ');
+            // const longWords = words.filter(w => w.length > 4);
+            // return longWords;
+
+            return text.split(' ').filter(w => w.length > 4);
+        }
+
+        const words = longWords("hej alla glada goa programmerare som implementerar saker");
+        console.log(words);
+    </script>
+</body>
+</html>

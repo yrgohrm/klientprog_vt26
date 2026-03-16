@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p id="someid">
+        Some long <strong>strong text</strong>.
+    </p>
+
+
+    <script>
+        let someid = document.getElementById('someid')
+
+        for (let i = 0; i < 5; ++i) {
+            let elem = someid.cloneNode(true)
+            document.body.appendChild(elem)
+        }
+    </script>
+
+</body>
+
+</html>

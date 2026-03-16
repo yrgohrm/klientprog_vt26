@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="output.js"></script>
+</head>
+
+<body>
+    <script>
+        let list = ["hello", "world"]
+        list.shift()
+        output(list)
+
+        list.unshift('new')
+        list.unshift('brave')
+        output(list)
+
+        let queue = [0, 1, 2]
+        queue.push(3)
+        let nextItem = queue.shift()
+        output(queue)
+        output(nextItem)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p>
+        Detta är en bit <strong>viktig</strong> text för <em>alla</em>.
+    </p>
+
+    <div>
+        Detta är en bit <strong>oviktig</strong> text för <em>ingen</em>.
+    </div>
+
+    <script>
+        const ptag = document.querySelector('body > p');
+        console.log(ptag.querySelectorAll('*'));
+
+        // Hämta alla p-element och hämta det först av dem
+        const pElements = document.getElementsByTagName("p")
+        const firstParagraph = pElements[0]
+        
+        // HTMLCollection
+        console.log(firstParagraph.children)
+
+        // NodeList
+        console.log(firstParagraph.childNodes)
+    </script>
+</body>
+
+</html>

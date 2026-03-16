@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Live vs static</title>
+</head>
+
+<body>
+    <input type="button" value="Lägg till p-element" id="add">
+    <input type="button" value="Visa antal element" id="show">
+
+    <p>Text</p>
+    <p>Text 2</p>
+
+    <script>
+        // Hämtar ut datan, den ena är live den andra är static
+        const pLive = document.getElementsByTagName('p')
+        const pStatic = document.querySelectorAll('p')
+
+        // Skapa en bit kod som körs när vi klickar på "Visa"-knappen
+        document.getElementById("show").addEventListener("click", () => {
+            // Här kommer vi få olika värden för samlingen som är live
+            // efter att vi lagt till ett element (eller flera)
+            alert(`Live: ${pLive.length}` +
+                ` Static: ${pStatic.length}`)
+        })
+
+        // Skapa en bit kod som körs när vi klickar på "Lägg till"-knappen
+        document.getElementById("add").addEventListener("click", () => {
+            // Vi lägger till ett nytt p-element
+            const newP = document.createElement('p')
+            newP.innerText = 'Text ' + (document.body.childElementCount - 3)
+            document.body.appendChild(newP)
+        })
+    </script>
+</body>
+
+</html>

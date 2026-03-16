@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let data = localStorage.getItem("data");
+        if (data == null) {
+            let newData = { foo: true, bar: 12 };
+            let json = JSON.stringify(newData);
+            localStorage.setItem("data", json);
+        }
+        else {
+            let obj = JSON.parse(data);
+            alert(obj.foo + " " + obj.bar);
+        }
+
+    </script>
+</body>
+
+</html>

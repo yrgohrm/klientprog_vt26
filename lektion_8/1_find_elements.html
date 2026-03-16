@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hitta element</title>
+</head>
+
+<body>
+    <p id="someid" class="blue">Hejsan</p>
+    <p>på</p>
+    <div class="blue">
+        <p>er</p>
+    </div>
+
+    <script>
+        console.log("getElementById", document.getElementById('someid'))
+        console.log("getElementsByClassName", document.getElementsByClassName('blue'))
+        console.log("getElementsByTagName", document.getElementsByTagName('p'))
+        console.log("querySelector", document.querySelector('body > p'))
+        console.log("querySelectorAll", document.querySelectorAll('body > p'))
+
+        const someElem = document.getElementById('someid');
+
+        setTimeout(() => someElem.innerText = "Hallå på er alla!", 4000);
+    </script>
+</body>
+
+</html>
