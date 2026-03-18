@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <script>
+        let loadTime = new Date();
+
+        // DOMContentLoaded triggers when the DOM is completely loaded and
+        // all defered and module script have run, but not all images, subframes etc
+        window.addEventListener("DOMContentLoaded", () => {
+            loadTime = new Date();
+            console.log("DOMContentLoaded")
+        })
+
+        window.addEventListener("load", () => {
+            console.log("load", new Date().getTime() - loadTime)
+        })
+
+    </script>
+</head>
+
+<body>
+
+    <img src="http://placekitten.com/2000/3000" width="200" height="300" alt="Some cat">
+    <img src="https://robohash.org/thecat.png?set=set4&size=200x200" alt="A cat">
+    <img src="https://robohash.org/somecat.png?set=set4&size=200x200" alt="Maybe a cat">
+    <img src="http://placekitten.com/1000/1500" width="200" height="300" alt="Some cat">
+
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        const fs = window.getComputedStyle(document.body, null).getPropertyValue('font-size')
+        const size = Number(fs.replace('px', '')) / 2
+
+        // preload the image URL
+        new Image().src = 'https://discordemoji.com/assets/emoji/confetti.gif'
+
+        /**
+         * Adds a little heart to the screen centered on the mouse position.
+         * 
+         * @param {MouseEvent} event
+         * 
+         */
+        function addHeart(event) {
+            const div = document.createElement('div')
+            div.innerText = '💓'
+            div.style.position = 'absolute'
+            div.style.left = (event.clientX - size) + "px"
+            div.style.top = (event.clientY - size) + "px"
+
+            const img = document.createElement('img')
+            img.src = 'https://discordemoji.com/assets/emoji/confetti.gif'
+            img.style.position = 'absolute'
+            img.style.left = (event.clientX - 60) + "px"
+            img.style.top = (event.clientY - 60) + "px"
+
+            document.body.appendChild(img)
+            document.body.appendChild(div)
+
+            setTimeout(() => document.body.removeChild(img), 200)
+        }
+
+        document.addEventListener('mousedown', addHeart)
+    </script>
+</body>
+
+</html>

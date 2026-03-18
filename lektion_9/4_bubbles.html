@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #top {
+            padding: 2rem;
+            background-color: antiquewhite;
+        }
+
+        #navbar {
+            padding: 2rem;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="top">
+        <nav id="navbar">
+            <a href="#" id="link">Klicka mig</a>
+        </nav>
+    </div>
+
+    <script>
+
+        let topElem = document.getElementById('top')
+        topElem.addEventListener('click',
+            () => console.log('top click'))
+
+        let nav = document.getElementById('navbar')
+        nav.addEventListener('click',
+            () => console.log('nav click'))
+
+        let a = document.getElementById('link')
+        a.addEventListener('click',
+            () => console.log('link click'))
+
+
+    </script>
+</body>
+
+</html>

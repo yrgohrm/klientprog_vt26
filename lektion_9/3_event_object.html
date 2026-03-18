@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" id="button1" value="Jajamensan!">
+    <input type="button" id="button2" value="Absolut!">
+
+    <script>
+
+        function handleClick(event) {
+            event.target.style.backgroundColor = 'red';
+            let pelem = document.createElement('p')
+            pelem.innerText = `Hejsan ${event.target.id} ${event.target.value}`
+            document.body.appendChild(pelem)
+        }
+
+        let button1 = document.getElementById('button1')
+        button1.addEventListener('click', handleClick)
+
+        let button2 = document.getElementById('button2')
+        button2.addEventListener('click', handleClick)
+
+    </script>
+</body>
+
+</html>

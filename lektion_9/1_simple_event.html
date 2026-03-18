@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" id="thebutton" value="Klicka mig">
+
+    <script>
+
+        function handleClick(event) {
+            let pelem = document.createElement('p')
+            pelem.innerText = "Hejsan"
+            document.body.append(pelem)
+        }
+
+        function sayHello() {
+            console.log("Hello!")
+        }
+
+        const theButton = document.getElementById('thebutton')
+        theButton.addEventListener('click', handleClick)
+        theButton.addEventListener('click', sayHello)
+
+    </script>
+</body>
+
+</html>
