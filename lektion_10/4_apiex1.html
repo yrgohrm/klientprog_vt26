@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Exempel</title>
+
+    <script type="module">
+
+        let bpkResp = await fetch("https://brottsplatskartan.se/api/events?app=yrgo-example&location=göteborg&limit=10&page=1")
+        let data = await bpkResp.json()
+        for (const event of data.data) {
+            let main = document.getElementById("main-content")
+            let eventDiv = document.createElement('div')
+            let title = document.createElement('h2')
+            let text = document.createElement('p')
+
+            title.innerText = event.description
+            text.innerText = event.content.replace(/(<([^>]+)>)/gi, "")
+            eventDiv.append(title)
+            eventDiv.append(text)
+
+            main.append(eventDiv)
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <main style="display: flex; flex-direction: column;" id="main-content"></main>
+
+</body>
+
+</html>

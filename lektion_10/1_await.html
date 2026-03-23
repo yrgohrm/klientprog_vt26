@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hahaha</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        function showJoke() {
+            const headers = {
+                'Accept': 'application/json',
+                'User-Agent': 'Yrgo JS Class (yrgo.se)'
+            }
+    
+            fetch('https://icanhazdadjoke.com', { headers })
+                .then(resp => {
+                    if (!resp.ok) 
+                        throw new Error('oops!')
+                    return resp.json()
+                })
+                .then(data => document.body.append(data.joke))
+        }
+
+        async function showJokeAsync() {
+            const headers = {
+                'Accept': 'application/json',
+                'User-Agent': 'Yrgo JS Class (yrgo.se)'
+            }
+    
+            const resp = await fetch('https://icanhazdadjoke.com', { headers })
+    
+            if (resp.ok) {
+                const data = await resp.json()
+                document.body.append(data.joke)
+            }
+        }
+
+        showJoke()
+        document.body.append(document.createElement('hr'))
+        showJokeAsync()
+        document.body.append(document.createElement('hr'))
+
+    </script>
+</body>
+
+</html>

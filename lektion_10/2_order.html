@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="button" value="Bad Way" id="bad">
+    <input type="button" value="Good Way" id="good">
+
+    <script>
+        function resolve5Seconds() {
+            return new Promise(resolve => {
+                console.log("start work for resolve 5s")
+                setTimeout(() => {
+                    resolve("5s")
+                }, 5000)
+            })
+        }
+
+        function resolve3Second() {
+            return new Promise(resolve => {
+                console.log("start work for resolve 3s")
+                setTimeout(() => {
+                    resolve("3s")
+                }, 3000)
+            })
+        }
+
+        async function sequentialStart() {
+            const start = new Date()
+
+            console.log('sequentialStart is slow')
+
+            const val1 = await resolve5Seconds()
+            
+            const val2 = await resolve3Second()
+            
+            console.log("got result:", val1)
+            console.log("got result:", val2)
+
+            const end = new Date()
+            console.log("time:", end.getTime() - start.getTime(), "ms")
+        }
+
+        async function concurrentStart() {
+            const start = new Date()
+
+            console.log('concurrentStart is quick')
+
+            const val1 = resolve5Seconds()
+            const val2 = resolve3Second()
+
+            console.log("got result:", await val2)
+            console.log("got result:", await val1)
+
+            const end = new Date()
+            console.log("time:", end.getTime() - start.getTime(), "ms")
+        }
+
+        document.getElementById("bad").addEventListener('click', sequentialStart)
+        document.getElementById("good").addEventListener('click', concurrentStart)
+    </script>
+</body>
+
+</html>

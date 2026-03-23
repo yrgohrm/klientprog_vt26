@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        class DadJokeService {
+            get() {
+                return fetch('https://icanhazdadjoke.com/',
+                    { headers: { 'Accept': 'application/json' } })
+                    .then(resp => resp.json())
+                    .then(json => json.joke)
+            }
+
+            search(term) {
+                let safeTerm = encodeURIComponent(term)
+                return fetch('https://icanhazdadjoke.com/search?limit=5&term=' + safeTerm,
+                    { headers: { 'Accept': 'application/json' } })
+                    .then(resp => resp.json())
+                    .then(json => {
+                        let results = []
+                        for (const res of json.results) {
+                            results.push(res.joke)
+                        }
+                        return results
+                    })
+            }
+        }
+
+        let dadJokeService = new DadJokeService()
+        dadJokeService.search("monkey").then(results => console.log(results))
+        dadJokeService.search("TV").then(results => console.log(results))
+        dadJokeService.get().then(joke => console.log(joke))
+        
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

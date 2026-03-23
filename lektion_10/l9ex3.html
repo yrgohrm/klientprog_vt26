@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            margin: 1rem;
+            padding: 1rem;
+
+            background-color: aquamarine;
+
+            div {
+                background-color: beige;
+
+                div {
+                    background-color: coral;
+                }
+            }
+        }
+    </style>
+    <script>
+        /**
+         * 
+         * @param {PointerEvent} event - the event object 
+         */
+        function handleClick(event) {
+            event.stopPropagation()
+            console.log(event.currentTarget.id)
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const elements = document.getElementsByTagName("div")
+            for (const div of elements) {
+                div.addEventListener("click", handleClick)
+            }
+        })
+    </script>
+</head>
+<body>
+    <div id="outer">
+        <div id="middle">
+            <div id="inner">Hello, world!</div>
+        </div>
+
+        <div id="end">
+            xyxyxyxyxyx
+        </div>
+    </div>
+</body>
+</html>

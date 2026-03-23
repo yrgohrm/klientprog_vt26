@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Example</title>
+
+    <script type="module">
+        const resp = await fetch("https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies.min.json")
+        const currencies = await resp.json()
+
+        const fromCurr = document.getElementById("from-curr")
+        const toCurr = document.getElementById("to-curr")
+
+        for (const curr in currencies) {
+            const option = document.createElement("option")
+            option.value = curr
+            if (currencies[curr]?.trim().length) {
+                option.innerText = currencies[curr]
+            }
+            else {
+                option.innerText = curr.toUpperCase()
+            }
+            fromCurr.append(option)
+            toCurr.append(option.cloneNode(true))
+        }
+
+        let convert = document.getElementById("convert")
+        convert.addEventListener("click", async () => {
+            let resp = await fetch(`https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${fromCurr.value}.json`)
+            let data = await resp.json()
+            let conversion = data[fromCurr.value][toCurr.value]
+            let amount = document.getElementById("amount")
+            let result = document.getElementById("result")
+            result.value = parseFloat(amount.value) * conversion
+        })
+    </script>
+</head>
+<body>
+    
+    <form style="display: flex; flex-direction: column; max-width: 65ch; gap: 0.25rem;">
+        <input type="number" id="amount">
+        <label for="from-curr">From:</label>
+        <select id="from-curr"></select>
+        <label for="to-curr">To:</label>
+        <select id="to-curr"></select>
+        <input type="button" value="Convert" id="convert">
+        <input type="number" id="result" disabled>
+    </form>
+
+</body>
+</html>
