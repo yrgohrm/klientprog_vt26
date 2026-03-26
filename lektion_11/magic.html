@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="module">
+        const Scryfall = {
+            async search(term) {
+                const headers = {
+                    'Accept': 'application/json',
+                    'User-Agent': 'YrgoClient/1.0',
+                }
+
+                const resp = await fetch("https://api.scryfall.com/cards/search?q=" + term + "&order=eur&dir=desc",
+                    { headers });
+
+                if (!resp.ok) {
+                    console.warn("äsch då! " + resp.status + " " + resp.statusText);
+                    return [];
+                }
+
+                const data = await resp.json();
+
+                if (data.data) {
+                    const retval = [];
+                    for (const card of data.data) {
+                        if (card?.image_uris?.small) {
+                            retval.push({ img: card.image_uris.small, name: card.name })
+                        }
+                    }
+                    return retval;
+                }
+            }
+        };
+
+        async function searchForCards(e) {
+            e.preventDefault();
+
+            const textInput = document.getElementById("search");
+            const searchText = encodeURIComponent(textInput.value);
+
+            const cards = await Scryfall.search(searchText);
+            for (const card of cards) {
+                const img = document.createElement('img');
+                img.src = card.img;
+                img.alt = card.name ?? "unknown name";
+                images.append(img);
+            }
+        }
+
+        const form = document.getElementById('searchForm');
+        form.addEventListener("submit", searchForCards);
+    </script>
+</head>
+
+<body>
+    <form id="searchForm">
+        <input type="text" name="search" id="search">
+        <input type="submit" value="Search">
+    </form>
+
+    <main id="images"></main>
+</body>
+
+</html>
