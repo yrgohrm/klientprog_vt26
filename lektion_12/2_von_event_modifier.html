@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #app {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+    </style>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "vue": "https://unpkg.com/vue@3.5.28/dist/vue.esm-browser.js"
+            },
+            "integrity": {
+                "https://unpkg.com/vue@3.5.28/dist/vue.esm-browser.js": "sha384-Q3gg1uvxzo7j5a5zJyKw57OkLMyOhl1sGmQxxn63S3lsr8Ki3ACSKKSvK8zG//7D"
+            }
+        }
+    </script>
+
+    <script type="module">
+        import { createApp, ref } from "vue";
+
+        const app = {
+            setup() {
+                const count = ref(0);
+                const parentCount = ref(0);
+
+                function increase() {
+                    count.value++;
+                }
+
+                function parentIncrease(event) {
+                    parentCount.value++;
+
+                    console.log(event.target);
+                }
+
+                return { count, increase, parentCount, parentIncrease };
+            }
+        }
+
+        createApp(app).mount("#app");
+    </script>
+</head>
+
+<body>
+    <div id="app">
+        <div>count: {{ count }}</div>
+        <div>parent: {{ parentCount }}</div>
+
+        <div @click="parentIncrease">
+            <input type="button" value="++" @click="increase">
+        </div>
+
+        <div @click="parentIncrease">
+            <input type="button" value="stop++" @click.stop="increase">
+        </div>
+
+        <div @click="parentIncrease">
+            <input type="button" value="once++" @click.once="increase">
+        </div>
+
+        <div @click="parentIncrease">
+            <input type="button" value="stop once++" @click.once.stop="increase">
+        </div>
+    </div>
+</body>
+
+</html>

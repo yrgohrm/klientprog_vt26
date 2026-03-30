@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Fact App</title>
+
+    <style>
+        ul {
+            display: flex;
+            flex-direction: column;
+        }
+
+        li {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        li>div {
+            padding: 0.5em;
+        }
+    </style>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "vue": "https://unpkg.com/vue@3.5.28/dist/vue.esm-browser.js"
+            },
+            "integrity": {
+                "https://unpkg.com/vue@3.5.28/dist/vue.esm-browser.js": "sha384-Q3gg1uvxzo7j5a5zJyKw57OkLMyOhl1sGmQxxn63S3lsr8Ki3ACSKKSvK8zG//7D"
+            }
+        }
+    </script>
+
+    <script type="module">
+        import { createApp, onMounted, ref, useTemplateRef } from "vue";
+
+        const app = {
+            setup() {
+                const items = ref([]);
+
+                async function addItem() {
+                    let resp = await fetch("https://yrgo-web-services.netlify.app/animal-facts");
+
+                    if (resp.ok) {
+                        let json = await resp.json();
+
+                        let text = json.fact;
+                        let urlText = encodeURIComponent(text);
+                        let url = `https://robohash.org/${urlText}.png?set=set4&size=32x32`;
+
+                        let img = new Image();
+                        img.addEventListener("load", () => items.value.push({ text, url }));
+                        img.src = url;
+                    }
+                };
+
+                // load one fact from the start
+                addItem();
+
+                return { items, addItem };
+            }
+        }
+
+        createApp(app).mount("#app");
+    </script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="More facts!" @click="addItem">
+
+        <ul>
+            <li v-for="item in items">
+                <div><img :src="item.url" alt="animal image"></div>
+                <div>{{item.text}}</div>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

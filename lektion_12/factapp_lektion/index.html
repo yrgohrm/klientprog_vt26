@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="importmap">
+        {
+            "imports": {
+                "vue": "https://unpkg.com/vue@3.5.28/dist/vue.esm-browser.js"
+            },
+            "integrity": {
+                "https://unpkg.com/vue@3.5.28/dist/vue.esm-browser.js": "sha384-Q3gg1uvxzo7j5a5zJyKw57OkLMyOhl1sGmQxxn63S3lsr8Ki3ACSKKSvK8zG//7D"
+            }
+        }
+    </script>
+
+    <script type="module">
+        import { createApp, ref } from "vue";
+
+        const FactService = {
+            async getFact() {
+                const resp = await fetch("https://yrgo-web-services.netlify.app/animal-facts");
+
+                if (resp.ok) {
+                    const data = await resp.json();
+                    return data.fact;
+                }
+                else {
+                    throw new Error("unable to fetch fact: " + resp.statusText);
+                }
+            }
+        }
+
+        const app = {
+            setup() {
+                const facts = ref([]);
+
+                async function addFact() {
+                    try {
+                        const fact = await FactService.getFact();
+                        facts.value.unshift({ img: Math.random(), fact });
+                    }
+                    catch (error) {
+                        console.error(error);
+                        // poppa upp en toast med felmeddelande
+                    }
+
+                }
+
+                for (let i = 0; i < 4; ++i) {
+                    addFact();
+                }
+
+                return { facts, addFact };
+            }
+        }
+
+        createApp(app).mount("#app");
+    </script>
+
+    <style>
+        main {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            padding: 1rem;
+
+            div {
+                border: 2px solid hotpink;
+                border-radius: 5px;
+                padding: 1rem;
+                display: flex;
+                gap: 0.25rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>The Fact App</h1>
+
+    <div id="app">
+        <input type="button" value="New fact" @click="addFact">
+
+        <main>
+            <div v-for="fact of facts" :key="fact">
+                <img :src="`https://robohash.org/${fact.img}.png?set=set4&size=100x100`">
+                <p>{{ fact.fact }}</p>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
