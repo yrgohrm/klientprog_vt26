@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing App</title>
+    <style>
+        article {
+            border: 1px solid hotpink;
+        }
+    </style>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "vue": "https://unpkg.com/vue@3.5.28/dist/vue.esm-browser.js"
+            },
+            "integrity": {
+                "https://unpkg.com/vue@3.5.28/dist/vue.esm-browser.js": "sha384-Q3gg1uvxzo7j5a5zJyKw57OkLMyOhl1sGmQxxn63S3lsr8Ki3ACSKKSvK8zG//7D"
+            }
+        }
+    </script>
+
+    <script type="module">
+        import { createApp, ref } from "vue";
+
+        const app = {}
+
+        const vueApp = createApp(app)
+
+        vueApp.component('article-comp', {
+            props: {
+                title: String
+            },
+            template: `<article>
+                            <h2>{{title}}</h2>
+                            <p>
+                                <slot>Saknar en fin <em>artikeltext</em></slot>
+                            </p>
+                        </article>`
+        })
+
+        vueApp.mount("#app")
+    </script>
+</head>
+
+<body>
+    <div id="app">
+        <article-comp title="Min fina artikel">
+            Här kommer den rafflande texten om <em>massa</em> spännande saker.
+        </article-comp>
+
+        <article-comp title="Listan över de bästa katterna">
+            Vilken katt är egentligen bäst? Svaret är att ingen katt är bäst, hundar är bäst.
+        </article-comp>
+
+        <article-comp title="Denna är tom"></article-comp>
+    </div>
+</body>
+
+</html>

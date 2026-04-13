@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <script type="importmap">
+        {
+            "imports": {
+                "vue": "https://unpkg.com/vue@3.5.28/dist/vue.esm-browser.js"
+            },
+            "integrity": {
+                "https://unpkg.com/vue@3.5.28/dist/vue.esm-browser.js": "sha384-Q3gg1uvxzo7j5a5zJyKw57OkLMyOhl1sGmQxxn63S3lsr8Ki3ACSKKSvK8zG//7D"
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 400px;
+            margin: 40px auto;
+        }
+
+        .done {
+            text-decoration: line-through;
+            color: #999;
+        }
+
+        li {
+            cursor: pointer;
+            padding: 4px 0;
+        }
+    </style>
+
+    <script type="module">
+        import { createApp, ref, computed } from "vue";
+
+        const app = {
+            setup() {
+                const newTodo = ref("");
+                
+                const todos = ref([
+                    { id: 1, text: "Learn Vue basics", done: true },
+                    { id: 2, text: "Build a todo app", done: false }
+                ]);
+
+                let nextId = 3;
+
+                const remaining = computed(() => todos.value.filter(t => !t.done).length);
+
+                function addTodo() {
+                    const text = newTodo.value.trim();
+                    if (!text) return;
+                    todos.value.push({ id: nextId++, text, done: false });
+                    newTodo.value = "";
+                }
+
+                function removeTodo(id) {
+                    todos.value = todos.value.filter(t => t.id !== id);
+                }
+
+                return { newTodo, todos, remaining, addTodo, removeTodo };
+            }
+        }
+
+        createApp(app).mount("#app");
+    </script>
+</head>
+
+<body>
+    <div id="app">
+        <h2>Todo List</h2>
+
+        <form @submit.prevent="addTodo">
+            <input v-model="newTodo" placeholder="What needs to be done?">
+            <button :disabled="!newTodo.trim()">Add</button>
+        </form>
+
+        <p v-if="todos.length === 0">No todos yet — add one above!</p>
+
+        <ul v-else>
+            <li v-for="todo in todos" :key="todo.id">
+                <input type="checkbox" v-model="todo.done">
+                <span :class="{ done: todo.done }">{{ todo.text }}</span>
+                <button @click="removeTodo(todo.id)">✕</button>
+            </li>
+        </ul>
+
+        <p v-if="todos.length > 0">{{ remaining }} remaining</p>
+    </div>
+</body>
+
+</html>

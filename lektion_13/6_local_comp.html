@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing App</title>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "vue": "https://unpkg.com/vue@3.5.28/dist/vue.esm-browser.js"
+            },
+            "integrity": {
+                "https://unpkg.com/vue@3.5.28/dist/vue.esm-browser.js": "sha384-Q3gg1uvxzo7j5a5zJyKw57OkLMyOhl1sGmQxxn63S3lsr8Ki3ACSKKSvK8zG//7D"
+            }
+        }
+    </script>
+
+    <script type="module">
+        import { createApp, ref } from "vue";
+
+        const localArtComp = {
+            props: ["title"],
+            template: `<article>
+                        <h2>{{title}}</h2>
+                        <p><slot></slot></p>
+                       </article>`
+        }
+
+        const articleComp = {
+            components: { 
+                localArtComp
+            },
+            props: {
+                articles: Array
+            },
+            template: `<div style="border: 1px solid black;">
+                         Alla artiklar:
+                         <local-art-comp v-for="art of articles" :title="art">
+                            The article about {{art}}
+                         </local-art-comp>
+                       </div>`
+        }
+
+        const app = {
+            components: {
+                articleComp,
+            },
+            setup() {
+                const headings = ref(["Artikel 1", "Art 2", "Art 3"]);
+                return { headings };
+            }
+        }
+
+        const vueApp = createApp(app)
+
+        vueApp.mount("#app")
+    </script>
+</head>
+
+<body>
+    <div id="app">
+        <article-comp :articles="headings">
+        </article-comp>
+    </div>
+</body>
+
+</html>

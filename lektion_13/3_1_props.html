@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing App</title>
+    <script type="importmap">
+        {
+            "imports": {
+                "vue": "https://unpkg.com/vue@3.5.28/dist/vue.esm-browser.js"
+            },
+            "integrity": {
+                "https://unpkg.com/vue@3.5.28/dist/vue.esm-browser.js": "sha384-Q3gg1uvxzo7j5a5zJyKw57OkLMyOhl1sGmQxxn63S3lsr8Ki3ACSKKSvK8zG//7D"
+            }
+        }
+    </script>
+
+    <script type="module">
+        import { createApp, ref } from "vue";
+
+        const app = {}
+
+        const vueApp = createApp(app)
+
+        const listComponent = {
+            name: "ListComponent",
+            props: ["buttonText", "heading", "multiplier"],
+            // access props in setup as the first argument to the function
+            setup(props) {
+                const multiplier = Number(props.multiplier);
+                const list = ref([]);
+
+                function addItem(evt) {
+                    let text = String(Math.random() * multiplier);
+                    list.value.push(text);
+                }
+
+                return { list, addItem };
+            },
+            template: `<div>
+                            <h2>{{heading}}</h2>
+                            <input type="button" :value="buttonText" @click="addItem">
+                            <ul>
+                                <li v-for="item of list">{{item}}</li>
+                            </ul>
+                        </div>`
+        }
+
+        vueApp.component('list-component', listComponent)
+
+        vueApp.mount("#app")
+    </script>
+</head>
+
+<body>
+    <div id="app">
+        <list-component button-text="Click" heading="Comp 1" multiplier="2"></list-component>
+        <list-component button-text="Add" heading="Comp Two" multiplier="10"></list-component>
+        <list-component button-text="Add it NOW" heading="Fun Stuff" multiplier="0.5"></list-component>
+    </div>
+</body>
+
+</html>

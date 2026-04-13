@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing App</title>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "vue": "https://unpkg.com/vue@3.5.28/dist/vue.esm-browser.js"
+            },
+            "integrity": {
+                "https://unpkg.com/vue@3.5.28/dist/vue.esm-browser.js": "sha384-Q3gg1uvxzo7j5a5zJyKw57OkLMyOhl1sGmQxxn63S3lsr8Ki3ACSKKSvK8zG//7D"
+            }
+        }
+    </script>
+
+    <script type="module">
+        import { createApp, ref } from "vue";
+
+        const app = {};
+
+        const vueApp = createApp(app);
+
+        vueApp.component('list-component', {
+            props: {
+                buttonText: {
+                    type: String,
+                    default: "Click"
+                },
+                pregen: Number
+            },
+            setup(props) {
+                const list = ref([]);
+
+                function addItem() {
+                    let text = String(Math.random());
+                    list.value.push(text);
+                }
+
+                if (props.pregen) {
+                    for (let i = 0; i < props.pregen; ++i) {
+                        addItem();
+                    }
+                }
+
+                return { list, addItem };
+            },
+            template: `<div>
+                            <input type="button" :value="buttonText" @click="addItem">
+                            <ul>
+                                <li v-for="item of list">{{item}}</li>
+                            </ul>
+                        </div>`
+        });
+
+        vueApp.mount("#app");
+    </script>
+</head>
+
+<body>
+    <div id="app">
+        <list-component :pregen="3"></list-component>
+        <list-component button-text="Add" :pregen="1"></list-component>
+    </div>
+</body>
+
+</html>

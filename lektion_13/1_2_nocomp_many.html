@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing App</title>
+    <script type="importmap">
+        {
+            "imports": {
+                "vue": "https://unpkg.com/vue@3.5.28/dist/vue.esm-browser.js"
+            },
+            "integrity": {
+                "https://unpkg.com/vue@3.5.28/dist/vue.esm-browser.js": "sha384-Q3gg1uvxzo7j5a5zJyKw57OkLMyOhl1sGmQxxn63S3lsr8Ki3ACSKKSvK8zG//7D"
+            }
+        }
+    </script>
+
+    <script type="module">
+        import { createApp, ref } from "vue";
+
+        const app = {
+            setup() {
+                const list = ref([]);
+                const list2 = ref([]);
+                const list3 = ref([]);
+
+                function addItem() {
+                    const text = String(Math.random());
+                    list.value.push(text);
+                }
+
+                function addItem2() {
+                    const text = String(Math.random());
+                    list2.value.push(text);
+                }
+
+                function addItem3() {
+                    const text = String(Math.random());
+                    list3.value.push(text);
+                }
+
+                return { list, list2, list3, addItem, addItem2, addItem3 };
+            }
+        }
+
+        createApp(app).mount("#app")
+    </script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="Add" @click="addItem">
+        <ul>
+            <li v-for="item of list">{{item}}</li>
+        </ul>
+
+        <input type="button" value="Add" @click="addItem2">
+        <ul>
+            <li v-for="item of list2">{{item}}</li>
+        </ul>
+
+        <input type="button" value="Add" @click="addItem3">
+        <ul>
+            <li v-for="item of list3">{{item}}</li>
+        </ul>
+    </div>
+</body>
+
+</html>
