@@ -1,0 +1,19 @@
+{
+  "name": "test-project",
+  "version": "1.0.0",
+  "description": "Super nice program",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "private": "true",
+  "devDependencies": {
+    "tap": "^21.7.1"
+  },
+  "dependencies": {
+    "lodash": "^4.18.1"
+  }
+}
