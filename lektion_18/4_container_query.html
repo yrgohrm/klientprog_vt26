@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.2.4"
+        integrity="sha384-yNSZBFvuOWcmww494a9+1zNuvgUGEXoWkein7cxP8wHUTi3iXCU4vJ7hr3tzBCml"
+        crossorigin="anonymous"></script>
+
+    <title>Tailwind CSS</title>
+</head>
+
+<body class="p-4 bg-stone-100">
+
+    <div class="@container flex gap-2 bg-red-100 p-2 w-1/2">
+
+        <div class="flex flex-col grow @md:flex-row bg-yellow-100 gap-2 p-2">
+            <div class="bg-sky-100 grow">ruta 1</div>
+            <div class="bg-sky-200 grow">ruta 2</div>
+            <div class="bg-sky-300 grow">ruta 3</div>
+            <div class="bg-sky-400 grow">ruta 4</div>
+        </div>
+
+    </div>
+
+    <div class="@container flex gap-2 bg-red-200 p-2">
+
+        <div class="flex flex-col grow @md:flex-row bg-yellow-200 gap-2 p-2">
+            <div class="bg-sky-100 grow">ruta 1</div>
+            <div class="bg-sky-200 grow">ruta 2</div>
+            <div class="bg-sky-300 grow">ruta 3</div>
+            <div class="bg-sky-400 grow">ruta 4</div>
+        </div>
+        
+    </div>
+
+</body>
+
+</html>
