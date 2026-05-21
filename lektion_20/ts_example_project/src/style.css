@@ -1,0 +1,8 @@
+@import url("./reset.css");
+@import url("./theme.css");
+
+body {
+  main {
+    padding: 2rem;    
+  }
+}
